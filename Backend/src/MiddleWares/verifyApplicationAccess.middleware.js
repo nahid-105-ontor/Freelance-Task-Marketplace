@@ -5,11 +5,12 @@ const Application = require("../Models/application.model");
 
 const verifyApplicationAccess = asyncHandler(async (req, res, next) => {
   const user = req.user;
-  const application = await Application.findById(req.params.id);
 
-  if (!job) {
+  const application = await Application.findOne({jobId:req.params.id});
+  if (!application) {
     throw new apiError(404, "No Job Found");
   }
+  req.job = application;
   const createdBy = application.freelancerId.toString();
   if (user.role === "admin") {
     return next();
@@ -17,6 +18,7 @@ const verifyApplicationAccess = asyncHandler(async (req, res, next) => {
   if (createdBy !== user.id) {
     throw new apiError(401, "Unauthorized Access");
   }
+  
   next();
 });
 module.exports = verifyApplicationAccess;
