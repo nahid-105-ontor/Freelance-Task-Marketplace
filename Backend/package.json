@@ -1,0 +1,23 @@
+{
+  "name": "freelance-task-marketplace",
+  "version": "1.0.0",
+  "description": "A full-stack Freelance Task Marketplace backend built with Node.js, Express, MongoDB, JWT authentication, and OAuth (Google, GitHub, Facebook, LinkedIn).",
+  "license": "ISC",
+  "author": "Nahid Hossain Antor",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.7.1",
+    "nodemon": "^3.1.14",
+    "prettier": "^3.8.4"
+  }
+}
