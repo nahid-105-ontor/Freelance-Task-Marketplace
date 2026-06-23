@@ -13,6 +13,7 @@ const {
 } = require("../Controllers/job.controller");
 const { postApply, deleteApply, updateApply, getApply } = require("../Controllers/application.controller");
 const verifyApplicationAccess = require("../MiddleWares/verifyApplicationAccess.middleware");
+const send = require("../Controllers/sendMail");
 const router = express.Router();
 //Auth Routes
 router.route("/auth/register").post(register)
@@ -43,4 +44,8 @@ router
 .route("/application/:id/:applicationId")
 .put(authentication,authorization("admin","client"),verifyJobAccess,updateApply)
 
+
+router
+.route("/sendmail")
+.post(send)
 module.exports = router;
