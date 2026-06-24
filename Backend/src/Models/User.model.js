@@ -57,15 +57,21 @@ const userSchema = new mongoose.Schema(
     refreshToken: {
       type: String,
     },
+    emailVerificationToken: {
+      type: String,
+    },
+    emailVerificationTokenExpires:{
+      type:Date
+    }
   },
   {
     timestamps: true,
   }
 );
 
-userSchema.pre("save", async function beforeSave(next) {
+userSchema.pre("save", async function beforeSave() {
   if (!this.isModified("password") || !this.password) {
-    return next();
+    return;
   }
   this.password = await hashPassword(this.password);
 });

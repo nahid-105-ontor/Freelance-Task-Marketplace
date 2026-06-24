@@ -1,6 +1,6 @@
-const welcomeEmail = ({ fullName, dashboardUrl }) => {
+const verifySuccess = ({ fullName }) => {
   return `
-<div style="
+  <div style="
     max-width:600px;
     margin:0 auto;
     background:#ffffff;
@@ -11,7 +11,7 @@ const welcomeEmail = ({ fullName, dashboardUrl }) => {
   ">
 
     <div style="
-      background:#f59e0b;
+      background:#22c55e;
       padding:25px;
       text-align:center;
     ">
@@ -33,7 +33,7 @@ const welcomeEmail = ({ fullName, dashboardUrl }) => {
         margin-top:0;
         color:#111827;
       ">
-        Welcome to Job Bee!
+        🎉 Email Verified Successfully
       </h2>
 
       <p>
@@ -41,18 +41,12 @@ const welcomeEmail = ({ fullName, dashboardUrl }) => {
       </p>
 
       <p style="line-height:1.8;">
-        Thank you for joining <strong>Job Bee</strong>.
-        We're excited to have you as part of our growing community.
+        Great news! Your email address has been successfully verified.
+        Your Job Bee account is now fully activated.
       </p>
 
       <p style="line-height:1.8;">
-        You can now explore jobs, connect with talented freelancers,
-        and start building your professional career.
-      </p>
-
-      <p style="line-height:1.8;">
-        Whether you're looking for work or searching for the right talent,
-        Job Bee is here to help you succeed.
+        You can now log in and start exploring opportunities, applying for jobs, and managing your profile.
       </p>
 
       <div style="
@@ -60,9 +54,9 @@ const welcomeEmail = ({ fullName, dashboardUrl }) => {
         margin:35px 0;
       ">
         <a
-          href="${dashboardUrl}"
+          href="https://your-frontend-url.com/login"
           style="
-            background:#f59e0b;
+            background:#22c55e;
             color:white;
             text-decoration:none;
             padding:14px 28px;
@@ -71,9 +65,13 @@ const welcomeEmail = ({ fullName, dashboardUrl }) => {
             display:inline-block;
           "
         >
-          Dashboard
+          Go to Login
         </a>
       </div>
+
+      <p style="line-height:1.8;">
+        If you did not perform this action, please contact our support team immediately.
+      </p>
 
       <p>
         Best Regards,
@@ -96,11 +94,12 @@ const welcomeEmail = ({ fullName, dashboardUrl }) => {
         font-size:12px;
         color:#6b7280;
       ">
-        © 2026 Job Bee. All rights reserved.
+        © 2025 Job Bee. All rights reserved.
       </p>
     </div>
 
   </div>
- `;
+  `;
 };
-module.exports = welcomeEmail;
+
+module.exports = verifySuccess;

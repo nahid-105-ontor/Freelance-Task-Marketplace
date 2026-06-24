@@ -1,5 +1,5 @@
 const express = require("express");
-const { register, login, logout, refreshToken } = require("../Controllers/auth.controller");
+const { register, login, logout, refreshToken, verificationEmail, doVerification } = require("../Controllers/auth.controller");
 const authentication = require("../MiddleWares/authentication.middleware");
 const refreshTokenVerification = require("../MiddleWares/refreshTokenVerifier.middleware");
 const authorization = require("../MiddleWares/authorization.middleware");
@@ -13,13 +13,15 @@ const {
 } = require("../Controllers/job.controller");
 const { postApply, deleteApply, updateApply, getApply } = require("../Controllers/application.controller");
 const verifyApplicationAccess = require("../MiddleWares/verifyApplicationAccess.middleware");
-const send = require("../Controllers/sendMail");
+
 const router = express.Router();
 //Auth Routes
 router.route("/auth/register").post(register)
 router.route("/auth/login").post(login)
 router.route("/auth/logout").post(authentication ,logout)
 router.route("/auth/refresh-token").post(refreshTokenVerification,refreshToken)
+router.route("/auth/sendverificationemail").get(authentication,verificationEmail)
+router.route("/auth/verifyemail/:token").post(authentication,doVerification)
 //Job Routes
 router.route("/jobs")//get job, post job
 .get(authentication,authorization("admin","client","freelancer"),getjobs)
@@ -45,7 +47,5 @@ router
 .put(authentication,authorization("admin","client"),verifyJobAccess,updateApply)
 
 
-router
-.route("/sendmail")
-.post(send)
+
 module.exports = router;

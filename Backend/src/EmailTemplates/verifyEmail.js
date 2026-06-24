@@ -1,4 +1,4 @@
-const verifyEmailTemplate = (name, verificationLink) => {
+const verifyEmailTemplate = ({fullName, verificationLink}) => {
   return `
   <div style="
     max-width:600px;
@@ -37,7 +37,7 @@ const verifyEmailTemplate = (name, verificationLink) => {
       </h2>
 
       <p>
-        Hello <strong>${name}</strong>,
+        Hello <strong>${fullName}</strong>,
       </p>
 
       <p style="line-height:1.8;">
